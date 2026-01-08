@@ -25,10 +25,7 @@ class _BodyState extends State<Body> {
     super.initState();
 
     _loadSharedPreferencesData();
-    _calculateProgress();
   }
-
-  Future<void> _calculateProgress() async {}
 
   Future<void> _loadSharedPreferencesData() async {
     prefs = await SharedPreferences.getInstance();

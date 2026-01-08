@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/body.dart';
 import 'package:my_app/components/appbar.dart';
+import 'package:my_app/components/bottomNavigation.dart';
 import 'package:my_app/pages/HomeScreen.dart';
 import 'package:my_app/pages/allTopics_screen.dart';
 
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         body: Homescreen(text: "Home Screen"),
         // body: Body(text: "Home Page"),
         // body: AllTopicsScreen(navbarText: "All Topics"),
+        bottomNavigationBar: BottomNavBar(onTabChanged: print),
       ),
     );
   }

@@ -29,11 +29,7 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(
-            Icons.person_outline_rounded,
-            color: Colors.white,
-            size: 32,
-          ),
+          icon: const Icon(Icons.notifications, color: Colors.white, size: 32),
         ),
       ],
     );
