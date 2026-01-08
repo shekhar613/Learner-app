@@ -246,7 +246,7 @@ class HomeScreenState extends State<Homescreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "Day 4 of 12",
+                                      "Day $daysComplete of ${jsonDataLength!.length}",
                                       style: TextStyle(
                                         color: const Color.fromARGB(
                                           255,
@@ -383,7 +383,6 @@ class HomeScreenState extends State<Homescreen> {
                                         ),
                                       );
                                       _init();
-                                      ;
                                     },
                                     child: Container(
                                       width: double.infinity,
