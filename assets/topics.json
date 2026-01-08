@@ -1,0 +1,157 @@
+{
+  "Day 1": {
+    "heading": "Dart 3 Basics & Modern Syntax",
+    "details": "Day 1 me Dart 3 ke basics cover kiye.\nRecords sikhe jisse chhote data ke liye class banane ki zarurat nahi padti.\nSealed classes padhi jisse Loading, Success, Error jaise fixed states safely handle hote hain.\nPattern matching use ki jisse data easily extract ho jata hai.\nSwitch expression use kiya jisse if-else kam hua.\nFocus tha modern Dart 3 style code likhna.",
+    "subTopics": {
+      "Records": {
+        "details": "Records multiple values ko ek variable me store karne ka simple tareeqa hai.\nIsme class banane ki zarurat nahi hoti.",
+        "example": "var user = ('Shekhar', 22);\nprint(user.$1); // Shekhar\nprint(user.$2); // 22"
+      },
+      "Sealed Classes": {
+        "details": "Sealed classes ka use fixed states banane ke liye hota hai.\nJaise loading, success ya error.",
+        "example": "sealed class ApiState {}\nclass Loading extends ApiState {}\nclass Success extends ApiState {}\nclass Error extends ApiState {}"
+      }
+    }
+  },
+
+  "Day 2": {
+    "heading": "Async Programming & Event Loop",
+    "details": "Day 2 me async programming cover ki.\nFuture aur async-await samjha.\nEvent loop ka basic flow dekha.\nHeavy kaam isolate me shift karna sikha.",
+    "subTopics": {
+      "Future": {
+        "details": "Future future me milne wale result ko represent karta hai.\nMostly API calls me use hota hai.",
+        "example": "Future<String> getData() async {\n  return 'Hello';\n}\n\ngetData().then((value) {\n  print(value);\n});"
+      },
+      "Isolate": {
+        "details": "Isolate heavy kaam ko background me run karta hai.\nUI freeze hone se bachata hai.",
+        "example": "await Isolate.run(() {\n  int sum = 0;\n  for (int i = 0; i < 1000000; i++) {\n    sum += i;\n  }\n  print(sum);\n});"
+      }
+    }
+  },
+
+  "Day 3": {
+    "heading": "Generators & Extension Methods",
+    "details": "Day 3 me generators aur extensions padhe.\nsync*, async* aur yield samjha.\nCustom stream banana sikha.\nExtension methods se existing class improve ki.",
+    "subTopics": {
+      "sync* Generator": {
+        "details": "sync* ek ek value generate karta hai.\nLoop ke andar yield use hota hai.",
+        "example": "Iterable<int> numbers() sync* {\n  yield 1;\n  yield 2;\n  yield 3;\n}\n\nfor (var n in numbers()) {\n  print(n);\n}"
+      },
+      "Extension Method": {
+        "details": "Extension se existing class me apna function add kar sakte ho.",
+        "example": "extension StringExtension on String {\n  String upper() {\n    return toUpperCase();\n  }\n}\n\nprint('hello'.upper());"
+      }
+    }
+  },
+
+  "Day 4": {
+    "heading": "Flutter Widget, Element & Render Trees",
+    "details": "Day 4 me Flutter ke 3 trees samjhe.\nWidget tree UI ka structure hota hai.\nElement tree widget aur render object ko connect karta hai.\nRenderObject tree screen par drawing karta hai.",
+    "subTopics": {
+      "Widget Tree": {
+        "details": "Widget tree sirf UI ka blueprint hota hai.",
+        "example": "MaterialApp\n  └─ Scaffold\n      └─ Text('Hello')"
+      },
+      "RenderObject": {
+        "details": "RenderObject screen par actual painting karta hai.",
+        "example": "Text widget ka RenderParagraph object text draw karta hai."
+      }
+    }
+  },
+
+  "Day 5": {
+    "heading": "Keys & State Preservation",
+    "details": "Day 5 me Keys cover ki.\nKeys bina use kiye state loss ka issue dekha.\nValueKey use karke state fix ki.",
+    "subTopics": {
+      "Without Key": {
+        "details": "List reorder hone par state lost ho jata hai.",
+        "example": "ListTile(title: Text('Item'))"
+      },
+      "With ValueKey": {
+        "details": "ValueKey se Flutter ko pata chalta hai kaunsa widget kaunsa hai.",
+        "example": "ListTile(key: ValueKey(id), title: Text('Item'))"
+      }
+    }
+  },
+
+  "Day 6": {
+    "heading": "JSON Handling & ListView",
+    "details": "Day 6 me JSON load aur ListView banayi.\nAssets se JSON read ki.\nFutureBuilder use karke data show kiya.",
+    "subTopics": {
+      "Load JSON": {
+        "details": "Assets se JSON file read karte hain.",
+        "example": "String data = await rootBundle.loadString('assets/data.json');\nvar jsonData = jsonDecode(data);"
+      },
+      "ListView.builder": {
+        "details": "Dynamic list banane ke liye use hota hai.",
+        "example": "ListView.builder(\n  itemCount: items.length,\n  itemBuilder: (context, index) {\n    return Text(items[index]);\n  }\n)"
+      }
+    }
+  },
+
+  "Day 7": {
+    "heading": "Navigation & Routing",
+    "details": "Day 7 me navigation sikhi.\nEk screen se dusri screen pe jana.\nData pass karna sikha.",
+    "subTopics": {
+      "Navigation": {
+        "details": "Navigator.push se new screen open hoti hai.",
+        "example": "Navigator.push(\n  context,\n  MaterialPageRoute(builder: (_) => NextPage())\n);"
+      }
+    }
+  },
+
+  "Day 8": {
+    "heading": "Forms & Validation",
+    "details": "Day 8 me forms aur validation cover ki.\nUser input lena aur check karna.",
+    "subTopics": {
+      "Form Validation": {
+        "details": "Empty input ko check kar sakte hain.",
+        "example": "TextFormField(\n  validator: (value) {\n    if (value!.isEmpty) return 'Required';\n    return null;\n  }\n)"
+      }
+    }
+  },
+
+  "Day 9": {
+    "heading": "State Management Basics",
+    "details": "Day 9 me state management basics.\nsetState ka use samjha.",
+    "subTopics": {
+      "setState": {
+        "details": "UI ko refresh karne ke liye use hota hai.",
+        "example": "setState(() {\n  count++;\n});"
+      }
+    }
+  },
+
+  "Day 10": {
+    "heading": "Basic Animations",
+    "details": "Day 10 me animations ka intro.\nSimple animation use ki.",
+    "subTopics": {
+      "AnimatedContainer": {
+        "details": "Property change hone par animation hoti hai.",
+        "example": "AnimatedContainer(\n  duration: Duration(seconds: 1),\n  width: isBig ? 200 : 100\n)"
+      }
+    }
+  },
+
+  "Day 11": {
+    "heading": "Themes & Styling",
+    "details": "Day 11 me theme aur colors.\nApp ka common design set kiya.",
+    "subTopics": {
+      "ThemeData": {
+        "details": "App ke colors aur fonts set karta hai.",
+        "example": "MaterialApp(\n  theme: ThemeData(primaryColor: Colors.blue)\n)"
+      }
+    }
+  },
+
+  "Day 12": {
+    "heading": "Performance Optimization",
+    "details": "Day 12 me performance tips.\nConst widgets ka use sikha.",
+    "subTopics": {
+      "Const Widget": {
+        "details": "Const widgets unnecessary rebuilds se bachate hain.",
+        "example": "const Text('Hello World')"
+      }
+    }
+  }
+}
