@@ -32,6 +32,11 @@ class HomeScreenState extends State<Homescreen> {
     await loadJson();
   }
 
+  // function to delete the shared preferences data
+  Future<void> clearAllPrefs() async {
+    await prefs.clear();
+  }
+
   Future<void> _loadSharedPreferencesData() async {
     prefs = await SharedPreferences.getInstance();
     daysComplete = prefs.getInt("flutterChallengeDaysCount") ?? 0;
@@ -377,7 +382,7 @@ class HomeScreenState extends State<Homescreen> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => AllTopicsScreen(
-                                            navbarText: "navbarText",
+                                            navbarText: "60 Days of Flutter",
                                           ),
                                         ),
                                       );
@@ -538,52 +543,58 @@ class HomeScreenState extends State<Homescreen> {
                       ),
                     ),
                     SizedBox(height: 5),
-                    Container(
-                      height: 80,
-                      child: Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(right: 20),
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  color: const Color.fromARGB(
-                                    255,
-                                    125,
-                                    125,
-                                    125,
-                                  ).withOpacity(0.5),
-                                  borderRadius: BorderRadius.circular(100),
-                                ),
-                                child: Icon(
-                                  Icons.lock,
-                                  color: const Color.fromARGB(
-                                    255,
-                                    116,
-                                    116,
-                                    116,
+                    GestureDetector(
+                      onTap: () {
+                        clearAllPrefs();
+                        _init();
+                      },
+                      child: Container(
+                        height: 80,
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(right: 20),
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      125,
+                                      125,
+                                      125,
+                                    ).withOpacity(0.5),
+                                    borderRadius: BorderRadius.circular(100),
                                   ),
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Quiz: State Management",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 14,
+                                  child: Icon(
+                                    Icons.lock,
+                                    color: const Color.fromARGB(
+                                      255,
+                                      116,
+                                      116,
+                                      116,
                                     ),
                                   ),
-                                  Text("Unloack after practice"),
-                                ],
-                              ),
-                            ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Quiz: State Management",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w900,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    Text("Unloack after practice"),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
