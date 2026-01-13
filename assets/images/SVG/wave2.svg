@@ -1,0 +1,10 @@
+<svg class="wave-front"
+         viewBox="0 0 120 28"
+         preserveAspectRatio="none"
+         xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0 25.869c19.01 0 22.217-14.174 41.227-14.174
+           19.01 0 22.217 14.174 41.227 14.174
+           19.01 0 22.217-14.174 41.227-14.174V28H0v-2.131z">
+      </path>
+    </svg>

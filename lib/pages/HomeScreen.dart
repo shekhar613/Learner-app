@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/pages/allTopics_screen.dart';
+import 'package:my_app/pages/waterReminderScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Homescreen extends StatefulWidget {
@@ -446,44 +447,61 @@ class HomeScreenState extends State<Homescreen> {
                         fontSize: 14,
                       ),
                     ),
-                    Container(
-                      height: 80,
-                      child: Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(right: 20),
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  color: Colors.lightGreenAccent.withOpacity(
-                                    0.5,
+                    GestureDetector(
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Waterreminderscreen(),
+                          ),
+                        );
+                        _init();
+                      },
+
+                      child: Container(
+                        height: 80,
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(right: 20),
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.lightGreenAccent.withOpacity(
+                                      0.5,
+                                    ),
+                                    borderRadius: BorderRadius.circular(100),
                                   ),
-                                  borderRadius: BorderRadius.circular(100),
-                                ),
-                                child: Icon(
-                                  Icons.check,
-                                  color: const Color.fromARGB(255, 0, 180, 18),
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Watch Video Tutorial",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 14,
+                                  child: Icon(
+                                    Icons.check,
+                                    color: const Color.fromARGB(
+                                      255,
+                                      0,
+                                      180,
+                                      18,
                                     ),
                                   ),
-                                  Text("Completed at 10:00 AM"),
-                                ],
-                              ),
-                            ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Watch Video Tutorial",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w900,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    Text("Completed at 10:00 AM"),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
