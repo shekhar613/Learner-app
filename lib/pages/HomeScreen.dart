@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_app/pages/ExercisePreviewScreen.dart';
 import 'package:my_app/pages/allTopics_screen.dart';
 import 'package:my_app/pages/waterReminderScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -507,55 +508,77 @@ class HomeScreenState extends State<Homescreen> {
                       ),
                     ),
                     SizedBox(height: 5),
-                    Container(
-                      height: 80,
-                      child: Card(
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Container(
-                                margin: EdgeInsets.only(right: 20),
-                                height: 40,
-                                width: 40,
-                                decoration: BoxDecoration(
-                                  color: const Color.fromARGB(
-                                    255,
-                                    90,
-                                    187,
-                                    252,
-                                  ).withOpacity(0.5),
-                                  borderRadius: BorderRadius.circular(100),
-                                ),
-                                child: Icon(
-                                  Icons.code,
-                                  color: const Color.fromARGB(255, 0, 120, 180),
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Practice Coding",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w900,
-                                      fontSize: 14,
+                    GestureDetector(
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Exercisepreviewscreen(),
+                          ),
+                        );
+                        _init();
+                      },
+
+                      child: Container(
+                        height: 80,
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(right: 20),
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      90,
+                                      187,
+                                      252,
+                                    ).withOpacity(0.5),
+                                    borderRadius: BorderRadius.circular(100),
+                                  ),
+                                  child: Icon(
+                                    Icons.code,
+                                    color: const Color.fromARGB(
+                                      255,
+                                      0,
+                                      120,
+                                      180,
                                     ),
                                   ),
-                                  Text("Pending - 1 hour"),
-                                ],
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(left: 100),
-
-                                child: Icon(
-                                  Icons.play_arrow,
-                                  color: const Color.fromARGB(255, 180, 87, 0),
                                 ),
-                              ),
-                            ],
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Practice Coding",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w900,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    Text("Pending - 1 hour"),
+                                  ],
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(left: 100),
+
+                                  child: Icon(
+                                    Icons.play_arrow,
+                                    color: const Color.fromARGB(
+                                      255,
+                                      180,
+                                      87,
+                                      0,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
