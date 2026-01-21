@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_app/pages/ExercisePreviewScreen.dart';
 import 'package:my_app/pages/allTopics_screen.dart';
+import 'package:my_app/pages/taichiGetstartScreen.dart';
 import 'package:my_app/pages/waterReminderScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -626,6 +627,69 @@ class HomeScreenState extends State<Homescreen> {
                                   children: [
                                     Text(
                                       "Quiz: State Management",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w900,
+                                        fontSize: 14,
+                                      ),
+                                    ),
+                                    Text("Unloack after practice"),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 5),
+                    GestureDetector(
+                      onTap: () async {
+                        await Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Taichigetstartscreen(),
+                          ),
+                        );
+                        _init();
+                      },
+                      child: Container(
+                        height: 80,
+                        child: Card(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Container(
+                                  margin: EdgeInsets.only(right: 20),
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      125,
+                                      125,
+                                      125,
+                                    ).withOpacity(0.5),
+                                    borderRadius: BorderRadius.circular(100),
+                                  ),
+                                  child: Icon(
+                                    Icons.lock,
+                                    color: const Color.fromARGB(
+                                      255,
+                                      116,
+                                      116,
+                                      116,
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Tai chi walking",
                                       style: TextStyle(
                                         fontWeight: FontWeight.w900,
                                         fontSize: 14,
